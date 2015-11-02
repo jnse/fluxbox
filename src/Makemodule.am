@@ -257,8 +257,8 @@ fluxbox_SOURCES = \
 	src/Workspace.cc \
 	src/Workspace.hh \
 	src/WorkspaceCmd.cc \
-  src/Tiling.cc \
-  src/Tiling.hh \
+  src/Tile.cc \
+  src/Tile.hh \
 	src/WorkspaceCmd.hh \
 	src/WorkspaceMenu.cc \
 	src/WorkspaceMenu.hh \
