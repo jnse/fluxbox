@@ -167,26 +167,6 @@ private:
     const int m_workspace_num;
 };
 
-/// arranges windows in current workspace to rows and columns
-class ArrangeWindowsCmd: public FbTk::Command<void> {
-public:
-    enum {
-      UNSPECIFIED,
-      VERTICAL,
-      HORIZONTAL,
-      STACKLEFT,
-      STACKRIGHT,
-      STACKTOP,
-      STACKBOTTOM
-    };
-    explicit ArrangeWindowsCmd(int tile_method, std::string &pat):
-            m_tile_method( tile_method ), m_pat(pat.c_str()) { }
-    void execute();
-private:
-    const int m_tile_method;
-    const ClientPattern m_pat;
-};
-
 class ShowDesktopCmd: public FbTk::Command<void> {
 public:
     void execute();
