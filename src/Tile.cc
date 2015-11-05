@@ -44,7 +44,7 @@ void TileBaseCmd::execute() {
     // Current head
     int m_head = m_screen->getCurrHead();
     // Build an array of windows to tile.
-    for ( auto win = m_space->windowList().begin();
+    for ( Workspace::Windows::iterator win = m_space->windowList().begin();
           win != m_space->windowList().end(); ++win ) {
         int winhead = m_screen->getHead((*win)->fbWindow());
         if ((winhead == m_head || winhead == 0) && m_pat.match(**win)) {
@@ -87,7 +87,7 @@ void TileHorizontalCmd::execute() {
     int tgt_height = m_scr_height / m_num_windows;
     // Iterate through windows and place them.
     int counter = 0;
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         int x = m_scr_offs_x + m_padding;
         int y = m_scr_offs_y + (counter * tgt_height) + m_padding;
@@ -114,7 +114,7 @@ void TileVerticalCmd::execute()
     int tgt_width = m_scr_width / m_num_windows;
     // Iterate through windows and place them.
     int counter = 0;
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         int x = m_scr_offs_x + (counter * tgt_width) + m_padding;
         int y = m_scr_offs_y + m_padding;
@@ -144,7 +144,7 @@ void TileGridCmd::execute()
     int maxrow = int(0.99 + float(m_num_windows) / float(maxcol)); 
     int tgt_width = m_scr_width / maxcol;
     int tgt_height = m_scr_height / maxrow;    
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         // Calculate prelimenary position/size.
         int x = m_scr_offs_x + (col * tgt_width) + m_padding;
@@ -189,7 +189,7 @@ void TileStackedLeftCmd::execute() {
     // them on the right side of the screen.
     int counter = 0;
     int tgt_height = m_scr_height / m_num_windows;    
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         x = m_scr_offs_x + (m_scr_width / 2);
         y = m_scr_offs_y + (counter * tgt_height) + m_padding;
@@ -220,7 +220,7 @@ void TileStackedRightCmd::execute() {
     // them on the left side of the screen.
     int counter = 0;
     int tgt_height = m_scr_height / m_num_windows;    
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         x = m_scr_offs_x + m_padding;
         y = m_scr_offs_y + (counter * tgt_height) + m_padding;
@@ -251,7 +251,7 @@ void TileStackedTopCmd::execute() {
     // them on the bottom half of the screen.
     int counter = 0;
     int tgt_width = m_scr_width / m_num_windows;    
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         x = m_scr_offs_x + (counter * tgt_width) + m_padding;
         y = m_scr_offs_y + m_scr_height/2;
@@ -282,7 +282,7 @@ void TileStackedBottomCmd::execute() {
     // them on the top half of the screen.
     int counter = 0;
     int tgt_width = m_scr_width / m_num_windows;    
-    for (auto win = m_windows.begin() ; win != m_windows.end(); ++win)
+    for (Workspace::Windows::iterator win = m_windows.begin() ; win != m_windows.end(); ++win)
     {
         x = m_scr_offs_x + (counter * tgt_width) + m_padding;
         y = m_scr_offs_y + m_padding;
