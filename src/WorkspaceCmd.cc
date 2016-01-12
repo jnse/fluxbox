@@ -181,22 +181,21 @@ FbTk::Command<void> *parseWindowList(const string &command,
     else if (command == "prevgroup") {
         opts |= FocusableList::LIST_GROUPS;
         return new PrevWindowCmd(opts, pat);
-    } else if (command == "tilegrid") {
+    } else if (command == "arrangewindows") {
         return new TileGridCmd(pat);
-    } else if (command == "tilevertical") {
+    } else if (command == "arrangewindowsvertical") {
         return new TileVerticalCmd(pat);
-    } else if (command == "tilehorizontal") {
+    } else if (command == "arrangewindowshorizontal") {
         return new TileHorizontalCmd(pat);
-     } else if (command == "tilestackedleft") {
+     } else if (command == "arrangewindowsstackedleft") {
         return new TileStackedLeftCmd(pat);
-    } else if (command == "tilestackedright") {
+    } else if (command == "arrangewindowsstackedright") {
         return new TileStackedRightCmd(pat);
-    } else if (command == "tilestackedtop") {
+    } else if (command == "arrangewindowsstackedtop") {
         return new TileStackedTopCmd(pat);
-    } else if (command == "tilestackedbottom") {
+    } else if (command == "arrangewindowsstackedbottom") {
         return new TileStackedBottomCmd(pat);
     }
-
     return 0;
 }
 
